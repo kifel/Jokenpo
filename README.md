@@ -1,6 +1,6 @@
 # Jokenpo
 
-Jogo jokepon escrito na linguagem C sem a utilização de bibliotecas graficas
+Jogo jokenpo escrito na linguagem C sem a utilização de bibliotecas graficas
 
 ## 🚀 Começando
 
