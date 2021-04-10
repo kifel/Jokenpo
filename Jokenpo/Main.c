@@ -220,7 +220,7 @@ void jogo(void)
             {
                 system("cls");
                 criarmenulinhasuperior();
-                printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 128, 132, 160, 186);
+                printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
                 printf("\t\t%c      Espada j%c utilizada     %c\n", 186, 160, 186);
                 criarmenulinharodape();
                 jogador = 0; // jogador = 0 entrar um loop para refazer as escolhas
@@ -229,7 +229,7 @@ void jogo(void)
         else
         {
             criarmenulinhasuperior();
-            printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 128, 132, 160, 186);
+            printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
             criarmenulinharodape();
             jogador = 0;
             0; // jogador = 0 entrar um loop para refazer as escolhas
@@ -268,7 +268,7 @@ void jogo(void)
                 {
                     system("cls");
                     criarmenulinhasuperior();
-                    printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 128, 132, 160, 186);
+                    printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
                     printf("\t\t%c      Espada j%c utilizada     %c\n", 186, 160, 186);
                     criarmenulinharodape();
                     jogador = 0; // jogador = 0 entrar um loop para refazer as escolhas
@@ -277,7 +277,7 @@ void jogo(void)
             else
             {
                 criarmenulinhasuperior();
-                printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 128, 132, 160, 186);
+                printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
                 criarmenulinharodape();
                 jogador = 0;
                 0; // jogador = 0 entrar um loop para refazer as escolhas
@@ -318,7 +318,7 @@ void jogo(void)
         else
         {
             criarmenulinhasuperior();
-            printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 128, 132, 160, 186);
+            printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
             criarmenulinharodape();
         }
 
@@ -358,7 +358,7 @@ void jogo(void)
             else
             {
                 criarmenulinhasuperior();
-                printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 128, 132, 160, 186);
+                printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
                 criarmenulinharodape();
             }
         }
