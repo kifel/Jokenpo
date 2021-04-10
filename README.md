@@ -34,7 +34,7 @@ Mencione as ferramentas que você usou para criar seu projeto
 ## ✒️ Autor
 
 * **KifelG** - *Desenvolvimento do código* - [KifelG](https://github.com/kifel)
-* 
+ 
 ## 📄 Licença
 
 Este projeto está sob a licença (MIT License) - veja o arquivo [LICENSE.md](https://github.com/kifel/Jokenpo/blob/main/LICENSE) para detalhes.
