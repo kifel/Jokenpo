@@ -27,16 +27,20 @@ void menu()
     int lugar = 0; // variavel que mostra qual parte do menu o jogador se encontra
     system("cls"); // limpa a tela do console
 
-    printf("\n\t       JOKENPO by KifelG:\n\n");
-    printf("\n\t\t->  Start  \n"
-           "\t\t      Sair    \n\n\n");
+    printf("\t\t----------------\n");
+    printf("\t\t|    Jokenpo   |\n");
+    printf("\t\t----------------\n"
+           "\t\t|->  Start     |\n"
+           "\t\t|    Sair      |\n"
+           "\t\t----------------\n\n\n");
 
     while (1)
     {
         if (kbhit())
         {
             system("cls");
-            printf("\n\t       JOKENPO by KifelG:\n\n");
+            printf("\t\t----------------\n");
+            printf("\t\t|    Jokenpo   |\n");
             c = tecla();
 
             if (c == 80)
@@ -67,6 +71,7 @@ void menu()
             {                   //apertou [enter]
                 if (lugar == 0) //inicia o jogo quando é escolhida o opção start
                 {
+                    printf("\t\t----------------\n");
                     printf("\n\n\t       INICIANDO O JOGO!\n\n\n");
                     Sleep(2800);
                     system("cls");
@@ -83,13 +88,21 @@ void menu()
             }
             if (lugar == 0) // ao utilizar as setas do teclado a variavel lugar trocar de valor
             {               // dependendo do valor muda oque é mostrado na tela
-                printf("\n\t\t->  Start   \n"
-                       "\t\t      Sair    \n\n\n");
+                printf("\t\t----------------\n"
+                       "\t\t|->  Start     |\n"
+                       "\t\t|    Sair      |\n"
+                       "\t\t----------------\n\n\n");
             }
             if (lugar == 1)
             {
-                printf("\n\t\t     Start   \n"
-                       "\t\t->     Sair    \n\n\n");
+                printf("\t\t----------------\n"
+                       "\t\t|    Start     |\n"
+                       "\t\t|->  Sair      |\n"
+                       "\t\t----------------\n\n\n");
+            }
+            if (lugar == 2)
+            {
+                menu();
             }
         }
     }
@@ -268,7 +281,7 @@ void jogo(void)
         vencedor(); //função que determina o vencedor
 
         count++;          // aumenta o numero da jogada
-        Sleep(500);      // programa esperar 0,5s antes de continuar
+        Sleep(500);       // programa esperar 0,5s antes de continuar
     } while (count <= 5); // loop do programa ira acabar quando ocorrer 5 rodadas
 }
 
@@ -320,7 +333,7 @@ int main(int argc, char *argv[]) //função principal
         espadap = 0;   // controle de quantas vezes a espada do computador foi utilizado na partida
         system("cls"); // limpa a tela do console
         menu();        // função menu é iniciada tendo inicio a cadeia de eventos que leva ao jogo
-        Sleep(500);   // progama esperar 0,5s antes de motrar o resultado
+        Sleep(500);    // progama esperar 0,5s antes de motrar o resultado
         printf("\n\n\n\tResultado da partida\n");
         printf("\tJogador %d x %d Computador\n", jw, pw); // mostra o resultado da partida
         printf("\tTeve %d empates\n", emt);               // mostra os empates
