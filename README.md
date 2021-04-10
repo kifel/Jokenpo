@@ -6,8 +6,6 @@ Jogo jokepon escrito na linguagem C sem a utilização de bibliotecas graficas
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Consulte **Implantação** para saber como implantar o projeto.
-
 ### 📋 Pré-requisitos
 
 É nessecario ter instalado um compilador de C/C++ para poder utilizar o projeto
@@ -20,6 +18,12 @@ Exemplo ferramento de desenvolvimento CodeBlocks
 ### 🔧 Instalação
 
 Após a instalação da ferramenta de desenvolvimento:
+
+```
+Baixe a pasta Jokenpo que se encontra na pagina do projeto
+```
+
+Após baixar a pasta:
 
 ```
 Basta abrir o aquivo main.c e executar a compilação do arquivo
