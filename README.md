@@ -12,7 +12,7 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 
 ```
 Exemplo MinGw
-Exemplo ferramento de desenvolvimento CodeBlocks
+Exemplo ferramenta de desenvolvimento CodeBlocks
 ```
 
 ### 🔧 Instalação
