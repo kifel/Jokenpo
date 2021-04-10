@@ -1,6 +1,6 @@
 # Jokenpo
 
-Jogo jokenpo escrito na linguagem C sem a utilização de bibliotecas graficas
+Jogo jokenpo escrito na linguagem C sem a utilização de bibliotecas graficas, jogo consiste em cinco rodadas contra o computador existindo 4 possiveis jogadas (Pedra, Papel, tesoura e Espada), cada jogador pode utilizar apenas uma vez a Espada por jogo.
 
 ## 🚀 Começando
 
