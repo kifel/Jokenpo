@@ -33,9 +33,10 @@ Basta abrir o aquivo main.c e executar a compilação do arquivo
 
 * [Visual Studio Code](https://code.visualstudio.com/) - ferramenta de desenvolvimento
 
-## ✒️ Autor
+## ✒️ Autores
 
 * **KifelG** - *Desenvolvimento do código* - [KifelG](https://github.com/kifel)
+* **MrGotardo** - *Desenvolvimento inicial do código* - [MrGotardo](https://github.com/MrGotardo01)
  
 ## 📄 Licença
 
