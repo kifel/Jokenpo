@@ -13,7 +13,7 @@ Consulte **Implantação** para saber como implantar o projeto.
 É nessecario ter instalado um compilador de C/C++ para poder utilizar o projeto
 
 ```
-Exemplo é o MinGw
+Exemplo MinGw
 Exemplo ferramento de desenvolvimento CodeBlocks
 ```
 
