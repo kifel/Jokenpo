@@ -31,9 +31,7 @@ Basta abrir o aquivo main.c e executar a compilação do arquivo
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
-
-* [Visual Studio Code])(https://code.visualstudio.com/) - ferramenta de desenvolvimento
+* [Visual Studio Code](https://code.visualstudio.com/) - ferramenta de desenvolvimento
 
 ## ✒️ Autor
 
