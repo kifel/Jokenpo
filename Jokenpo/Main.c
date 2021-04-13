@@ -490,13 +490,13 @@ void jogarnovamente(void)
 
 void easteregg()
 {
-    int k;
+    int k, q, qq = 250;
     double sin(), cos();
 
     float A = 0, B = 0, i, j, z[1760];
     char b[1760];
     system("cls");
-    for (;;)
+    for (q = 0; q < 250; q++)
     {
         memset(b, 32, 1760);
         memset(z, 0, 7040);
@@ -534,6 +534,13 @@ void easteregg()
 
         printf("\n\nBy KifelG\n");
     }
+    system("cls");
+    criarmenulinhasuperior();
+    printf("\t\t%c       VOLTANDO AO MENU!      %C\n", 186, 186);
+    criarmenulinharodape();
+    printf("\n\nBy KifelG\n");
+    Sleep(2800);
+    menu();
 }
 
 int main(int argc, char *argv[]) //função principal
