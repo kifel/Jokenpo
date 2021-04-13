@@ -7,8 +7,8 @@
 #define STRAM 30
 #define STRAM2 35
 
-int computador, count, jw, pw, emt, espadaj, espadap; // variaveis globais que server para todas as funçoes
-char res, jogador, resregras;                         // variaveis globais que server para todas as funçoes
+int computador, jw, pw, emt; // variaveis globais que server para todas as funçoes
+char jogador, res;           // variaveis globais que server para todas as funçoes
 
 int tecla() // função que reconhece as setinhas do teclado
 {
@@ -144,7 +144,7 @@ void menu()
                     printf("\t\t%c            REGRAS            %C\n", 186, 186);
                     criarmenulinharodape();
                     regras();
-                    exit(0);
+                    break;
                 }
                 else if (lugar == 2)
                 {
@@ -208,7 +208,7 @@ void regras(void)
 
 void voltarmenu()
 {
-    char resegg;
+    char resegg, resregras;
 
     printf("\n\nAperte esc para voltar ao menu");
     printf("\t\t\t\t\t\t\t\t->\n");
@@ -262,6 +262,15 @@ void opcaoE() // função que mostra as opções de escolha
 
 void jogo(void)
 {
+    char espadaj, espadap;
+    int count;
+    count = 1;   // count é o numero da jogada
+    jw = 0;      // controle de quantas vezes o jogador ganhou
+    pw = 0;      // controle de quantas vezes o computador ganhou
+    emt = 0;     // controle de quantas vezes teve empate
+    espadaj = 0; // controle de quantas vezes a espada do jogador foi utilizado na partida
+    espadap = 0; // controle de quantas vezes a espada do computador foi utilizado na partida
+
     do
     {
         printf("rodada %d/5\n", count); // contador do numero de rodadas
@@ -397,14 +406,11 @@ void jogo(void)
         }
         else
         {
-            criarmenulinhasuperior();
-            printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
-            criarmenulinharodape();
+            computador = 0;
         }
 
         while (computador == 0) // loop para rafazer as escolhas do computador caso seja invalida
         {
-            srand(time(NULL));
             computador = ("%d", rand() % 4 + 1);
 
             if (computador == 1) // mostra a escolha do computador
@@ -448,6 +454,7 @@ void jogo(void)
         count++;          // aumenta o numero da jogada
         Sleep(500);       // programa esperar 0,5s antes de continuar
     } while (count <= 5); // loop do programa ira acabar quando ocorrer 5 rodadas
+    resultado();
 }
 
 void vencedor(void)
@@ -488,15 +495,23 @@ void jogarnovamente(void)
     }
 }
 
+void resultado()
+{
+    printf("\n\n\n\tResultado da partida\n");
+    printf("\tJogador %d x %d Computador\n", jw, pw); // mostra o resultado da partida
+    printf("\tTeve %d empates\n", emt);               // mostra os empates
+}
+
 void easteregg()
 {
-    int k, q, qq = 250;
+    int k, esc;
     double sin(), cos();
 
     float A = 0, B = 0, i, j, z[1760];
     char b[1760];
     system("cls");
-    for (q = 0; q < 250; q++)
+
+    while (esc != 27)
     {
         memset(b, 32, 1760);
         memset(z, 0, 7040);
@@ -533,14 +548,23 @@ void easteregg()
         B += 0.02;
 
         printf("\n\nBy KifelG\n");
+        printf("Pressione ESC para voltar ao menu...\n");
+
+        if (kbhit())
+        {
+            esc = tecla();
+            if (esc == 27)
+            {
+                system("cls");
+                criarmenulinhasuperior();
+                printf("\t\t%c       VOLTANDO AO MENU!      %C\n", 186, 186);
+                criarmenulinharodape();
+                printf("\n\nBy KifelG\n");
+                Sleep(2800);
+                menu();
+            }
+        }
     }
-    system("cls");
-    criarmenulinhasuperior();
-    printf("\t\t%c       VOLTANDO AO MENU!      %C\n", 186, 186);
-    criarmenulinharodape();
-    printf("\n\nBy KifelG\n");
-    Sleep(2800);
-    menu();
 }
 
 int main(int argc, char *argv[]) //função principal
@@ -548,20 +572,18 @@ int main(int argc, char *argv[]) //função principal
 
     do //entrar em loop se o jogador escolher jogar novamente
     {
-        count = 1;     // count é o numero da jogada
-        jw = 0;        // controle de quantas vezes o jogador ganhou
-        pw = 0;        // controle de quantas vezes o computador ganhou
-        emt = 0;       // controle de quantas vezes teve empate
-        espadaj = 0;   // controle de quantas vezes a espada do jogador foi utilizado na partida
-        espadap = 0;   // controle de quantas vezes a espada do computador foi utilizado na partida
         system("cls"); // limpa a tela do console
         menu();        // função menu é iniciada tendo inicio a cadeia de eventos que leva ao jogo
         Sleep(500);    // progama esperar 0,5s antes de motrar o resultado
-        printf("\n\n\n\tResultado da partida\n");
-        printf("\tJogador %d x %d Computador\n", jw, pw); // mostra o resultado da partida
-        printf("\tTeve %d empates\n", emt);               // mostra os empates
         jogarnovamente();
     } while (res == 'S'); // se a resposta for sim ele entrar em loop iniciando o menu novamente
+
+    system("cls");
+    criarmenulinhasuperior();
+    printf("\t\t%c       SAINDO DO PROGRAMA!!   %C\n", 186, 186);
+    criarmenulinharodape();
+    Sleep(500);
+    exit(0);
 
     return 0;
 }
