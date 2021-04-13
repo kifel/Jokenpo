@@ -8,7 +8,7 @@
 #define STRAM2 35
 
 int computador, count, jw, pw, emt, espadaj, espadap; // variaveis globais que server para todas as funçoes
-char res, jogador;                                    // variaveis globais que server para todas as funçoes
+char res, jogador, resregras;                         // variaveis globais que server para todas as funçoes
 
 int tecla() // função que reconhece as setinhas do teclado
 {
@@ -70,28 +70,30 @@ void menujoganovamentetop()
 
 void menujoganovamentedown()
 {
-   int i;
+    int i;
     printf("\t%c", 192);
     for (i = 0; i < STRAM2; i++)
     {
         printf("%c", 196);
     }
-    printf("%c\n", 217); 
+    printf("%c\n", 217);
 }
 
 void menu()
 {
 
     int c;
-    int lugar = 0; // variavel que mostra qual parte do menu o jogador se encontra
-    system("cls"); // limpa a tela do console
-
+    int lugar = 0;
+    system("cls");
     criarmenulinhasuperior();
     printf("\t\t%c            Jokenpo           %c\n", 186, 186);
     criarmenulinhameio();
     printf("\t\t%c          -> Start            %c\n", 186, 186);
-    printf("\t\t%c             QUIT             %c\n", 186, 186);
+    printf("\t\t%c             Regras           %c\n", 186, 186);
+    printf("\t\t%c             Quit             %c\n", 186, 186);
     criarmenulinharodape();
+    printf("\n\n\n\t*Use as setas do teclado para movimenta%c%co das op%c%ces\n", 135, 132, 135, 148);
+    printf("\t*Utilize o Enter para escolher uma das op%c%ces\n", 135, 148);
 
     while (1)
     {
@@ -125,8 +127,8 @@ void menu()
                     lugar = 2;
             }
             if (c == 13)
-            {                   //apertou [enter]
-                if (lugar == 0) //inicia o jogo quando é escolhida o opção start
+            { //apertou [enter]
+                if (lugar == 0)
                 {
                     criarmenulinhasuperior();
                     printf("\t\t%c       INICIANDO O JOGO!      %C\n", 186, 186);
@@ -136,7 +138,15 @@ void menu()
                     jogo();
                     break;
                 }
-                else if (lugar == 1) //fecha o programa quando é escolhida a opçao sair
+                else if (lugar == 1)
+                {
+                    criarmenulinhasuperior();
+                    printf("\t\t%c            REGRAS            %C\n", 186, 186);
+                    criarmenulinharodape();
+                    regras();
+                    exit(0);
+                }
+                else if (lugar == 2)
                 {
                     system("cls"); // limpa a tela do console
                     criarmenulinhasuperior();
@@ -146,14 +156,17 @@ void menu()
                     exit(0);     // fecha o programa
                 }
             }
-            if (lugar == 0) // ao utilizar as setas do teclado a variavel lugar trocar de valor
-            {               // dependendo do valor muda oque é mostrado na tela
+            if (lugar == 0)
+            {
                 criarmenulinhasuperior();
                 printf("\t\t%c            Jokenpo           %c\n", 186, 186);
                 criarmenulinhameio();
                 printf("\t\t%c          -> Start            %c\n", 186, 186);
-                printf("\t\t%c             QUIT             %c\n", 186, 186);
+                printf("\t\t%c             Regras           %c\n", 186, 186);
+                printf("\t\t%c             Quit             %c\n", 186, 186);
                 criarmenulinharodape();
+                printf("\n\n\n\t*Use as setas do teclado para movimenta%c%co das op%c%ces\n", 135, 132, 135, 148);
+                printf("\t*Utilize o Enter para escolher uma das op%c%ces\n", 135, 148);
             }
             if (lugar == 1)
             {
@@ -161,13 +174,80 @@ void menu()
                 printf("\t\t%c            Jokenpo           %c\n", 186, 186);
                 criarmenulinhameio();
                 printf("\t\t%c             Start            %c\n", 186, 186);
-                printf("\t\t%c          -> QUIT             %c\n", 186, 186);
+                printf("\t\t%c          -> Regras           %c\n", 186, 186);
+                printf("\t\t%c             Quit             %c\n", 186, 186);
                 criarmenulinharodape();
+                printf("\n\n\n\t*Use as setas do teclado para movimenta%c%co das op%c%ces\n", 135, 132, 135, 148);
+                printf("\t*Utilize o Enter para escolher uma das op%c%ces\n", 135, 148);
             }
             if (lugar == 2)
             {
-                menu();
+                criarmenulinhasuperior();
+                printf("\t\t%c            Jokenpo           %c\n", 186, 186);
+                criarmenulinhameio();
+                printf("\t\t%c             Start            %c\n", 186, 186);
+                printf("\t\t%c             Regras           %c\n", 186, 186);
+                printf("\t\t%c          -> Quit             %c\n", 186, 186);
+                criarmenulinharodape();
+                printf("\n\n\n\t*Use as setas do teclado para movimenta%c%co das op%c%ces\n", 135, 132, 135, 148);
+                printf("\t*Utilize o Enter para escolher uma das op%c%ces\n", 135, 148);
             }
+        }
+    }
+}
+
+void regras(void)
+{
+    printf("\t\t\t\n\n- Pedra ganha da Tesoura (a amassa e quebra)\n");
+    printf("\t- Tesoura ganha do Papel (o corta)\n");
+    printf("\t- Papel ganha da Pedra (a embrulha)\n");
+    printf("\t- Espada s%c poder%c ser usado 1 unica vez at%c o fim do jogo\n", 162, 160, 130);
+    printf("\t- Cada partida ter%c 5 rodadas\n", 160);
+    voltarmenu();
+}
+
+void voltarmenu()
+{
+    char resegg;
+
+    printf("\n\nAperte esc para voltar ao menu");
+    printf("\t\t\t\t\t\t\t\t->\n");
+    resregras = getch();
+    if (resregras != 27 && resregras != 13)
+    {
+        system("cls");
+        menujoganovamentetop();
+        printf("\t%c         Resposta inv%clida         %c\n", 179, 160, 179);
+        menujoganovamentedown();
+        voltarmenu();
+    }
+    if (resregras == 27)
+    {
+        menu();
+    }
+    if (resregras == 13)
+    {
+        system("cls");
+        printf("Tem CERTEZA QUE DEJESA CONTINUAR ? [S/N]\n\n");
+        printf("Nao terar mais VOLTA\n");
+        resegg = getch();
+        resegg = toupper(resegg); // transforma a resposta para uma letra maiúscula
+        if (resegg == 'S')
+        {
+            easteregg();
+        }
+        else if (resegg == 'N')
+        {
+            system("cls");
+            voltarmenu();
+        }
+        else
+        {
+            system("cls");
+            menujoganovamentetop();
+            printf("\t%c         Resposta inv%clida         %c\n", 179, 160, 179);
+            menujoganovamentedown();
+            voltarmenu();
         }
     }
 }
@@ -401,8 +481,58 @@ void jogarnovamente(void)
     if (res != 'S' && res != 'N')
     {
         system("cls");
-        printf("\tResposta inv%clida\n\n\n", 160);
+        menujoganovamentetop();
+        printf("\t%c         Resposta inv%clida         %c\n", 179, 160, 179);
+        menujoganovamentedown();
         jogarnovamente();
+    }
+}
+
+void easteregg()
+{
+    int k;
+    double sin(), cos();
+
+    float A = 0, B = 0, i, j, z[1760];
+    char b[1760];
+    system("cls");
+    for (;;)
+    {
+        memset(b, 32, 1760);
+        memset(z, 0, 7040);
+        for (j = 0; 6.28 > j; j += 0.07)
+        {
+            for (i = 0; 6.28 > i; i += 0.02)
+            {
+                float sini = sin(i),
+                      cosj = cos(j),
+                      sinA = sin(A),
+                      sinj = sin(j),
+                      cosA = cos(A),
+                      cosj2 = cosj + 2,
+                      mess = 1 / (sini * cosj2 * sinA + sinj * cosA + 5),
+                      cosi = cos(i),
+                      cosB = cos(B),
+                      sinB = sin(B),
+                      t = sini * cosj2 * cosA - sinj * sinA;
+                int x = 40 + 30 * mess * (cosi * cosj2 * cosB - t * sinB),
+                    y = 12 + 15 * mess * (cosi * cosj2 * sinB + t * cosB),
+                    o = x + 80 * y,
+                    N = 8 * ((sinj * sinA - sini * cosj * cosA) * cosB - sini * cosj * sinA - sinj * cosA - cosi * cosj * sinB);
+                if (22 > y && y > 0 && x > 0 && 80 > x && mess > z[o])
+                {
+                    z[o] = mess;
+                    b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+                }
+            }
+        }
+        printf("\x1b[d");
+        for (k = 0; 1761 > k; k++)
+            putchar(k % 80 ? b[k] : 10);
+        A += 0.04;
+        B += 0.02;
+
+        printf("\n\nBy KifelG\n");
     }
 }
 
