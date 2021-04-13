@@ -229,7 +229,6 @@ void voltarmenu()
     {
         system("cls");
         printf("Tem CERTEZA QUE DEJESA CONTINUAR ? [S/N]\n\n");
-        printf("Nao terar mais VOLTA\n");
         resegg = getch();
         resegg = toupper(resegg); // transforma a resposta para uma letra maiúscula
         if (resegg == 'S')
