@@ -7,8 +7,8 @@
 #define STRAM 30 // Constante de controle do numero de linhas do menu
 #define STRAM2 35 // Constante de controle do numero de linhas do menu
 
-int computador, jw, pw, emt; // variaveis globais que server para todas as funçoes
-char jogador, res;           // variaveis globais que server para todas as funçoes
+int computador, jw, pw, emt; // variaveis globais que serve para todas as funçoes
+char jogador, res;           // variaveis globais que serve para todas as funçoes
 
 int tecla() // função que se alguma tecla esta sendo precionada 
 {
