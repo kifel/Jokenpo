@@ -4,20 +4,20 @@
 #include <windows.h>
 #include <conio.h>
 
-#define STRAM 30 // Constante de controle do numero de linhas do menu
+#define STRAM 30  // Constante de controle do numero de linhas do menu
 #define STRAM2 35 // Constante de controle do numero de linhas do menu
 
 int computador, jw, pw, emt; // variaveis globais que serve para todas as funçoes
 char jogador, res;           // variaveis globais que serve para todas as funçoes
 
-int tecla() // função que se alguma tecla esta sendo precionada 
+int tecla() // função que se alguma tecla esta sendo precionada
 {
     int varTecla;
     while (1)
     {
-        if (kbhit())  // caso alguma tecla esteja sendo precionada
-        {              // ele irar armanezar o valor da tecla na variavel 
-            varTecla = getch();  // getch captura um caractere da entrada 
+        if (kbhit())            // caso alguma tecla esteja sendo precionada
+        {                       // ele irar armanezar o valor da tecla na variavel
+            varTecla = getch(); // getch captura um caractere da entrada
             return varTecla;
         }
     }
@@ -82,16 +82,16 @@ void menujoganovamentedown() // função que cria linha do menu de jogar novamen
 void menu() // função que faz o menu princial do jogo
 {
 
-    int c; // declaração de variáveis
-    int lugar = 0; // declaração de variáveis
-    system("cls"); // limpa tela do console
+    int c;                    // declaração de variáveis
+    int lugar = 0;            // declaração de variáveis
+    system("cls");            // limpa tela do console
     criarmenulinhasuperior(); // função que cria linha superior do menu
     printf("\t\t%c            Jokenpo           %c\n", 186, 186);
     criarmenulinhameio(); // função que cria linha do meio do menu
     printf("\t\t%c          -> Start            %c\n", 186, 186);
     printf("\t\t%c             Regras           %c\n", 186, 186);
     printf("\t\t%c             Quit             %c\n", 186, 186);
-    criarmenulinharodape();// função que cria rodape do menu
+    criarmenulinharodape(); // função que cria rodape do menu
     printf("\n\n\n\t*Use as setas do teclado para movimenta%c%co das op%c%ces\n", 135, 132, 135, 148);
     printf("\t*Utilize o Enter para escolher uma das op%c%ces\n", 135, 148);
 
@@ -100,88 +100,88 @@ void menu() // função que faz o menu princial do jogo
         if (kbhit()) // se alguma tecla for precionada ele entrar dentro do if
         {
             system("cls"); // limpa tela do console
-            c = tecla(); // variavel c recebe função criada anteriormente
+            c = tecla();   // variavel c recebe função criada anteriormente
 
             if (c == 80)
-            { //apertou para baixo
-                lugar++; // variavel receber +1 no seu valor
+            {                  //apertou para baixo
+                lugar++;       // variavel receber +1 no seu valor
                 if (lugar > 2) // se o lugar for maior que 2
                     lugar = 0; // ele volta para posição inicial menu
             }
             if (c == 72)
-            { //apertou para cima
-                lugar--; // variavel recebe -1 no seu valor
+            {                  //apertou para cima
+                lugar--;       // variavel recebe -1 no seu valor
                 if (lugar < 0) // se o lugar for menor que 0
                     lugar = 2; // ele volta para ultima posição do menu
             }
             if (c == 75)
-            { //apertou para direita
-                lugar++;  // variavel receber +1 no seu valor
+            {                  //apertou para direita
+                lugar++;       // variavel receber +1 no seu valor
                 if (lugar > 2) // se o lugar for maior que 2
                     lugar = 0; // ele volta para posição inicial menu
             }
             if (c == 77)
-            { //apertou para esquerda
-                lugar--; // variavel recebe -1 no seu valor
+            {                  //apertou para esquerda
+                lugar--;       // variavel recebe -1 no seu valor
                 if (lugar < 0) // se o lugar for menor que 0
                     lugar = 2; // ele volta para ultima posição do menu
             }
             if (c == 13)
-            { //apertou [enter]
-                if (lugar == 0) // se o enter(opçao de escolha) for apertado quando o menu estiver em start
-                {               // inicia o jogo
+            {                                 //apertou [enter]
+                if (lugar == 0)               // se o enter(opçao de escolha) for apertado quando o menu estiver em start
+                {                             // inicia o jogo
                     criarmenulinhasuperior(); // função que cria linha superior do menu
                     printf("\t\t%c       INICIANDO O JOGO!      %C\n", 186, 186);
                     criarmenulinharodape(); // função que cria rodape do menu
-                    Sleep(2800); // sistema espera 2,8s antes de continuar
-                    system("cls"); // limpa tela do console
-                    jogo(); // inicia a função do jogo
-                    break; // para a estrutira de repetição
+                    Sleep(2800);            // sistema espera 2,8s antes de continuar
+                    system("cls");          // limpa tela do console
+                    jogo();                 // inicia a função do jogo
+                    break;                  // para a estrutira de repetição
                 }
-                else if (lugar == 1) // se o enter(opçao de escolha) for apertado quando o menu estiver em regras
-                {                    // inicia a função regras
+                else if (lugar == 1)          // se o enter(opçao de escolha) for apertado quando o menu estiver em regras
+                {                             // inicia a função regras
                     criarmenulinhasuperior(); // função que cria linha superior do menu
                     printf("\t\t%c            REGRAS            %C\n", 186, 186);
                     criarmenulinharodape(); // função que cria rodape do menu
-                    regras(); // inicia a função das regras
-                    break;  // para a estrutira de repetição
+                    regras();               // inicia a função das regras
+                    break;                  // para a estrutira de repetição
                 }
-                else if (lugar == 2) // se o enter(opçao de escolha) for apertado quando o menu estiver em quit
-                {                    // inicia a função de sair
-                    system("cls"); // limpa a tela do console
+                else if (lugar == 2)          // se o enter(opçao de escolha) for apertado quando o menu estiver em quit
+                {                             // inicia a função de sair
+                    system("cls");            // limpa a tela do console
                     criarmenulinhasuperior(); // função que cria linha superior do menu
                     printf("\t\t%c       SAINDO DO PROGRAMA!    %C\n", 186, 186);
                     criarmenulinharodape(); // função que cria rodape do menu
-                    Sleep(1000); // espera 1 s
-                    exit(0);     // fecha o programa
+                    Sleep(1000);            // espera 1 s
+                    exit(0);                // fecha o programa
                 }
             }
-            if (lugar == 0) // apos dectar a tecla apertada o programa imprime o local
-            {               // aonde a seta que demonstra a opçao de escolha esta
+            if (lugar == 0)               // apos dectar a tecla apertada o programa imprime o local
+            {                             // aonde a seta que demonstra a opçao de escolha esta
                 criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c            Jokenpo           %c\n", 186, 186);
                 criarmenulinhameio(); // função que cria linha  do meio do menu
                 printf("\t\t%c          -> Start            %c\n", 186, 186);
                 printf("\t\t%c             Regras           %c\n", 186, 186);
                 printf("\t\t%c             Quit             %c\n", 186, 186);
-                criarmenulinharodape();  // função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
                 printf("\n\n\n\t*Use as setas do teclado para movimenta%c%co das op%c%ces\n", 135, 132, 135, 148);
                 printf("\t*Utilize o Enter para escolher uma das op%c%ces\n", 135, 148);
             }
-            if (lugar == 1)// apos dectar a tecla apertada o programa imprime o local
-            {              // aonde a seta que demonstra a opçao de escolha esta
+            if (lugar == 1)               // apos dectar a tecla apertada o programa imprime o local
+            {                             // aonde a seta que demonstra a opçao de escolha esta
                 criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c            Jokenpo           %c\n", 186, 186);
                 criarmenulinhameio(); // função que cria linha  do meio do menu
                 printf("\t\t%c             Start            %c\n", 186, 186);
                 printf("\t\t%c          -> Regras           %c\n", 186, 186);
                 printf("\t\t%c             Quit             %c\n", 186, 186);
-                criarmenulinharodape();// função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
                 printf("\n\n\n\t*Use as setas do teclado para movimenta%c%co das op%c%ces\n", 135, 132, 135, 148);
                 printf("\t*Utilize o Enter para escolher uma das op%c%ces\n", 135, 148);
             }
-            if (lugar == 2)// apos dectar a tecla apertada o programa imprime o local
-            {              // aonde a seta que demonstra a opçao de escolha esta
+            if (lugar == 2)               // apos dectar a tecla apertada o programa imprime o local
+            {                             // aonde a seta que demonstra a opçao de escolha esta
                 criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c            Jokenpo           %c\n", 186, 186);
                 criarmenulinhameio(); // função que cria linha  do meio do menu
@@ -202,8 +202,8 @@ void regras(void) //função que mostra as regras do jogo
     printf("\t- Tesoura ganha do Papel (o corta)\n");
     printf("\t- Papel ganha da Pedra (a embrulha)\n");
     printf("\t- Espada s%c poder%c ser usado 1 unica vez at%c o fim do jogo\n", 162, 160, 130); //utilizado codigo ASCII para caracteres especiais
-    printf("\t- Cada partida ter%c 5 rodadas\n", 160); //utilizado codigo ASCII para caracteres especiais
-    voltarmenu(); // função que da opçao de voltar ao menu
+    printf("\t- Cada partida ter%c 5 rodadas\n", 160);                                          //utilizado codigo ASCII para caracteres especiais
+    voltarmenu();                                                                               // função que da opçao de voltar ao menu
 }
 
 void voltarmenu() // função que volta ao menu
@@ -212,14 +212,14 @@ void voltarmenu() // função que volta ao menu
 
     printf("\n\nAperte esc para voltar ao menu");
     printf("\t\t\t\t\t\t\t\t-><-\n");
-    resregras = getch(); // getch captura um caractere
+    resregras = getch();                    // getch captura um caractere
     if (resregras != 27 && resregras != 13) // se o botao apertado for diferente de ESC ou ENTER
     {                                       // mostrar resposta invalida
-        system("cls"); // limpa a tela do console
-        menujoganovamentetop(); // função que cria linha superior do menu
+        system("cls");                      // limpa a tela do console
+        menujoganovamentetop();             // função que cria linha superior do menu
         printf("\t%c         Resposta inv%clida         %c\n", 179, 160, 179);
         menujoganovamentedown(); // função que cria rodape do menu
-        voltarmenu(); // chama função novamente para refazer a escolha de voltar ao menu
+        voltarmenu();            // chama função novamente para refazer a escolha de voltar ao menu
     }
     if (resregras == 27) // se o botao apertado for ESC
     {
@@ -229,7 +229,7 @@ void voltarmenu() // função que volta ao menu
     {
         system("cls"); // limpa tela do console
         printf("Tem CERTEZA QUE DEJESA CONTINUAR ? [S/N]\n\n");
-        resegg = getch(); // getch captura um caractere
+        resegg = getch();         // getch captura um caractere
         resegg = toupper(resegg); // transforma a resposta para uma letra maiúscula
         if (resegg == 'S')
         {
@@ -238,15 +238,15 @@ void voltarmenu() // função que volta ao menu
         else if (resegg == 'N')
         {
             system("cls"); // limpa tela do console
-            voltarmenu(); // volta ao menu
+            voltarmenu();  // volta ao menu
         }
         else
         {
-            system("cls"); // limpa tela do console
-            menujoganovamentetop();// função que cria linha superior do menu
+            system("cls");          // limpa tela do console
+            menujoganovamentetop(); // função que cria linha superior do menu
             printf("\t%c         Resposta inv%clida         %c\n", 179, 160, 179);
-            menujoganovamentedown();// função que cria rodape do menu
-            voltarmenu();// volta ao menu
+            menujoganovamentedown(); // função que cria rodape do menu
+            voltarmenu();            // volta ao menu
         }
     }
 }
@@ -262,7 +262,7 @@ void opcaoE() // função que mostra as opções de escolha
 void jogo(void)
 {
     char espadaj, espadap;
-    int count;   
+    int count;
     count = 1;   // count é o numero da jogada
     jw = 0;      // controle de quantas vezes o jogador ganhou
     pw = 0;      // controle de quantas vezes o computador ganhou
@@ -273,20 +273,20 @@ void jogo(void)
     do
     {
         printf("rodada %d/5\n", count); // contador do numero de rodadas
-        criarmenulinhasuperior();// função que cria linha superior do menu
+        criarmenulinhasuperior();       // função que cria linha superior do menu
         printf("\t\t%c            Jokenpo           %c\n", 186, 186);
-        criarmenulinharodape();// função que cria rodape do menu
-        opcaoE(); // função da opção de escolha
+        criarmenulinharodape(); // função que cria rodape do menu
+        opcaoE();               // função da opção de escolha
         printf("\tDigite a op%c%co desejada: ", 135, 132);
         jogador = getch(); // getch captura um caractere
-        system("cls"); // limpa tela do console
+        system("cls");     // limpa tela do console
 
         if (jogador == '1') // mostra a escolha do jogador
         {
-            criarmenulinhasuperior(); // função que cria linha superior do menu 
+            criarmenulinhasuperior(); // função que cria linha superior do menu
             printf("\t\t%c     Jogador escolheu PEDRA   %c\n", 186, 186);
         }
-        else if (jogador == '2') // função que cria linha superior do menu 
+        else if (jogador == '2') // função que cria linha superior do menu
         {
             criarmenulinhasuperior(); // função que cria linha superior do menu
             printf("\t\t%c     Jogador escolheu PAPEL   %c\n", 186, 186);
@@ -298,20 +298,20 @@ void jogo(void)
         }
         else if (jogador == '4')
         {
-            if (espadaj < 1) // verifica se o jogador ja escolheu a opção da espada durante as 5 rodadas 
+            if (espadaj < 1) // verifica se o jogador ja escolheu a opção da espada durante as 5 rodadas
             {
                 criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c    Jogador escolheu ESPADA   %c\n", 186, 186);
             }
-            espadaj++; // espada do jogador recebe +1 no seu valor
+            espadaj++;       // espada do jogador recebe +1 no seu valor
             if (espadaj > 1) //Evitar que o jogador utilize a espada mais de 1 vez
             {
-                system("cls"); // limpa tela do console
+                system("cls");            // limpa tela do console
                 criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
                 printf("\t\t%c      Espada j%c utilizada     %c\n", 186, 160, 186);
                 criarmenulinharodape(); // função que cria rodape do menu
-                jogador = 0; // jogador = 0 entrar um loop para refazer as escolhas
+                jogador = 0;            // jogador = 0 entrar um loop para refazer as escolhas
             }
         }
         else
@@ -319,54 +319,54 @@ void jogo(void)
             criarmenulinhasuperior(); // função que cria linha superior do menu
             printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
             criarmenulinharodape(); // função que cria rodape do menu
-            jogador = 0; // jogador = 0 entrar um loop para refazer as escolhas
+            jogador = 0;            // jogador = 0 entrar um loop para refazer as escolhas
         }
 
         while (jogador == 0) // loop para rafazer as escolhas do jogador caso seja invalida
         {
             printf("\nDigite a opcao desejada: \n");
-            opcaoE(); // função da opção de escolha
+            opcaoE();           // função da opção de escolha
             jogador = getch();  // getch captura um caractere
-            system("cls"); // limpa tela do console
+            system("cls");      // limpa tela do console
             if (jogador == '1') // mostra a escolha do jogador
             {
-                criarmenulinhasuperior();// função que cria linha superior do menu
+                criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c     Jogador escolheu PEDRA   %c\n", 186, 186);
             }
             else if (jogador == '2')
             {
-                criarmenulinhasuperior();// função que cria linha superior do menu
+                criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c     Jogador escolheu PAPEL   %c\n", 186, 186);
             }
             else if (jogador == '3')
             {
-                criarmenulinhasuperior();// função que cria linha superior do menu
+                criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c   Jogador escolheu TESOURA   %c\n", 186, 186);
             }
             else if (jogador == '4')
             {
-                if (espadaj < 1) // verifica se o jogador ja escolheu a opção da espada durante as 5 rodadas 
+                if (espadaj < 1) // verifica se o jogador ja escolheu a opção da espada durante as 5 rodadas
                 {
-                    criarmenulinhasuperior();// função que cria linha superior do menu
+                    criarmenulinhasuperior(); // função que cria linha superior do menu
                     printf("\t\t%c    Jogador escolheu ESPADA   %c\n", 186, 186);
                 }
-                espadaj++; // espada do jogador recebe +1 no seu valor
+                espadaj++;       // espada do jogador recebe +1 no seu valor
                 if (espadaj > 1) //Evitar que o jogador utilize a espada mais de 1 vez
                 {
-                    system("cls"); // limpa tela do console
-                    criarmenulinhasuperior();// função que cria linha superior do menu
+                    system("cls");            // limpa tela do console
+                    criarmenulinhasuperior(); // função que cria linha superior do menu
                     printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
                     printf("\t\t%c      Espada j%c utilizada     %c\n", 186, 160, 186);
-                    criarmenulinharodape();// função que cria rodape do menu
-                    jogador = 0; // jogador = 0 entrar um loop para refazer as escolhas
+                    criarmenulinharodape(); // função que cria rodape do menu
+                    jogador = 0;            // jogador = 0 entrar um loop para refazer as escolhas
                 }
             }
             else
             {
-                criarmenulinhasuperior();// função que cria linha superior do menu
+                criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
-                criarmenulinharodape();// função que cria rodape do menu
-                jogador = 0; // jogador = 0 entrar um loop para refazer as escolhas
+                criarmenulinharodape(); // função que cria rodape do menu
+                jogador = 0;            // jogador = 0 entrar um loop para refazer as escolhas
             }
         }
         // lógica do computador
@@ -376,26 +376,26 @@ void jogo(void)
         if (computador == 1) // mostra a escolha do computador
         {
             printf("\t\t%c   Computador escolheu PEDRA  %c\n", 186, 186);
-            criarmenulinharodape();// função que cria rodape do menu
+            criarmenulinharodape(); // função que cria rodape do menu
         }
         else if (computador == 2)
         {
             printf("\t\t%c   Computador escolheu PAPEL  %c\n", 186, 186);
-            criarmenulinharodape();// função que cria rodape do menu
+            criarmenulinharodape(); // função que cria rodape do menu
         }
         else if (computador == 3)
         {
             printf("\t\t%c  Computador escolheu TESOURA %c\n", 186, 186);
-            criarmenulinharodape();// função que cria rodape do menu
+            criarmenulinharodape(); // função que cria rodape do menu
         }
         else if (computador == 4)
         {
             if (espadap < 1) // verifica se o computador ja escolheu a opção da espada durante as 5 rodadas
             {
                 printf("\t\t%c  Computador escolheu ESPADA  %c\n", 186, 186);
-                criarmenulinharodape();// função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
             }
-            espadap++; // espada do computador recebe +1 no seu valor
+            espadap++;       // espada do computador recebe +1 no seu valor
             if (espadap > 1) //Evitar que o computador utilize a espada mais de 1 vez
             {
                 computador = 0; // computador = 0 entrar um loop para refazer as escolhas
@@ -413,26 +413,26 @@ void jogo(void)
             if (computador == 1) // mostra a escolha do computador
             {
                 printf("\t\t%c   Computador escolheu PEDRA  %c\n", 186, 186);
-                criarmenulinharodape();// função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
             }
             else if (computador == 2)
             {
                 printf("\t\t%c   Computador escolheu PAPEL  %c\n", 186, 186);
-                criarmenulinharodape();// função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
             }
             else if (computador == 3)
             {
                 printf("\t\t%c  Computador escolheu TESOURA %c\n", 186, 186);
-                criarmenulinharodape();// função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
             }
             else if (computador == 4)
             {
                 if (espadap < 1) // verifica se o computador ja escolheu a opção da espada durante as 5 rodadas
                 {
                     printf("\t\t%c  Computador escolheu ESPADA  %c\n", 186, 186);
-                    criarmenulinharodape();// função que cria rodape do menu
+                    criarmenulinharodape(); // função que cria rodape do menu
                 }
-                espadap++; // espada do computador recebe +1 no seu valor
+                espadap++;       // espada do computador recebe +1 no seu valor
                 if (espadap > 1) //Evitar que o computador utilize a espada mais de 1 vez
                 {
                     computador = 0; // computador = 0 entrar um loop para refazer as escolhas
@@ -440,9 +440,9 @@ void jogo(void)
             }
             else
             {
-                criarmenulinhasuperior();// função que cria linha superior do menu
+                criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c        op%c%co inv%clida        %c\n", 186, 135, 132, 160, 186);
-                criarmenulinharodape();// função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
             }
         }
 
@@ -451,7 +451,7 @@ void jogo(void)
         count++;          // aumenta o numero da jogada
         Sleep(500);       // programa esperar 0,5s antes de continuar
     } while (count <= 5); // loop do programa ira acabar quando ocorrer 5 rodadas
-    resultado(); // função que mostra do resultado no final dos 5 jogos
+    resultado();          // função que mostra do resultado no final dos 5 jogos
 }
 
 void vencedor(void) // função que determina o vencedor
@@ -477,18 +477,18 @@ void vencedor(void) // função que determina o vencedor
 
 void jogarnovamente(void) // função jogar novamente
 {
-    menujoganovamentetop();// função que cria linha superior do menu
+    menujoganovamentetop(); // função que cria linha superior do menu
     printf("\t%c   Deseja jogar novamente ? [S/N]  %c\n", 179, 179);
-    menujoganovamentedown();// função que cria rodape do menu
-    res = getch(); // getch captura um caractere
-    res = toupper(res); // transforma a resposta para uma letra maiúscula
+    menujoganovamentedown(); // função que cria rodape do menu
+    res = getch();           // getch captura um caractere
+    res = toupper(res);      // transforma a resposta para uma letra maiúscula
     if (res != 'S' && res != 'N')
     {
         system("cls");
-        menujoganovamentetop();// função que cria linha superior do menu
+        menujoganovamentetop(); // função que cria linha superior do menu
         printf("\t%c         Resposta inv%clida         %c\n", 179, 160, 179);
-        menujoganovamentedown();// função que cria rodape do menu
-        jogarnovamente(); //chama a função jogarnovamente quaso a resposta seja invalida para fazer uma nova escolha
+        menujoganovamentedown(); // função que cria rodape do menu
+        jogarnovamente();        //chama a função jogarnovamente quaso a resposta seja invalida para fazer uma nova escolha
     }
 }
 
@@ -552,13 +552,13 @@ void easteregg() // easter egg codigo com algumas alterações do codigo origina
             esc = tecla();
             if (esc == 27)
             {
-                system("cls"); // limpa tela do console
-                criarmenulinhasuperior();// função que cria linha superior do menu
+                system("cls");            // limpa tela do console
+                criarmenulinhasuperior(); // função que cria linha superior do menu
                 printf("\t\t%c       VOLTANDO AO MENU!      %C\n", 186, 186);
-                criarmenulinharodape();// função que cria rodape do menu
+                criarmenulinharodape(); // função que cria rodape do menu
                 printf("\n\nModified by KifelG\n");
                 Sleep(2800); // programa espera 2,8s antes de continuar
-                menu(); // volta ao menu
+                menu();      // volta ao menu
             }
         }
     }
@@ -569,18 +569,18 @@ int main(int argc, char *argv[]) //função principal
 
     do //entrar em loop se o jogador escolher jogar novamente
     {
-        system("cls"); // limpa a tela do console
-        menu();        // função menu é iniciada tendo inicio a cadeia de eventos que leva ao jogo
-        Sleep(500);    // progama esperar 0,5s antes de motrar o resultado
-        jogarnovamente();// função de jogar novamente
+        system("cls");    // limpa a tela do console
+        menu();           // função menu é iniciada tendo inicio a cadeia de eventos que leva ao jogo
+        Sleep(500);       // progama esperar 0,5s antes de motrar o resultado
+        jogarnovamente(); // função de jogar novamente
     } while (res == 'S'); // se a resposta for sim ele entrar em loop iniciando o menu novamente
 
-    system("cls"); // limpa tela do console
-    criarmenulinhasuperior();// função que cria linha superior do menu
+    system("cls");            // limpa tela do console
+    criarmenulinhasuperior(); // função que cria linha superior do menu
     printf("\t\t%c       SAINDO DO PROGRAMA!!   %C\n", 186, 186);
-    criarmenulinharodape();// função que cria rodape do menu
-    Sleep(500); // programa espera 0,5s antes de continuar
-    exit(0); // pregrama fecha
+    criarmenulinharodape(); // função que cria rodape do menu
+    Sleep(500);             // programa espera 0,5s antes de continuar
+    exit(0);                // pregrama fecha
 
     return 0;
 }
